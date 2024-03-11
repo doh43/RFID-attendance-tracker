@@ -1,6 +1,9 @@
+QT += core gui widgets
+
 TARGET = group10
-QT = core gui widgets
+TEMPLATE = app
 CONFIG += c++11
+
 SOURCES += \
     $$PWD/src/*.cpp
 
