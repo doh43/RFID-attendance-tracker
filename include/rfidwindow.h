@@ -6,10 +6,10 @@
 
 class RfidWindow : public QMainWindow {
     public:
-        RfidWindow();
+        RfidWindow(QWidget *parent = nullptr);
         ~RfidWindow();
     protected:
-
+    
     private:
         void openAdminWindow(AdminUser *admin);
         void openUserWindow(User *user);
