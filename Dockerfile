@@ -6,6 +6,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends qt5-default && \
     apt-get install -y qtmultimedia5-dev && \
     apt-get install -y libqt5sql5-mysql && \
+    apt-get install -y mesa-utils && \
     rm -rf /var/lib/apt/lists/*
 
 # Your application setup here

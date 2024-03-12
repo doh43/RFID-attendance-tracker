@@ -10,9 +10,12 @@
 
 ## Create QTApp
 Be in the group10 dir
-
 `docker build -t group10/app .`
-`docker run -e DISPLAY=docker.for.mac.host.internal:0 --network qt-mysql group10/app`
+
+`cd wsl`
+
+Executes a .yml file that runs the application and sets up the GUI (mac X11 and WSL friendly) 
+`docker compose up`
 
 
 ## Errors

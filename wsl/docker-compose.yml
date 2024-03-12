@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  qt_app:
+    image: group10/app
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /mnt/wslg:/mnt/wslg
+    environment:
+      - DISPLAY=${DISPLAY}
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY}
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR}
+      - PULSE_SERVER=${PULSE_SERVER}
+    networks:
+      - qt-mysql
+
+networks:
+  qt-mysql:
+    external: true
