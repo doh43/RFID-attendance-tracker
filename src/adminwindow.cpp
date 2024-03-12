@@ -32,22 +32,27 @@ void AdminWindow::setupTable() {
     qDebug() << "Database error occured: " << db.lastError().text();
   }
   QSqlQuery query;
-  query.exec("SELECT * FROM users");
+  query.exec("SELECT users.user_id, users.username, users.email, scans.scan_time FROM scans JOIN users ON users.user_id = scans.user_id");
+  int row = 0;
   while (query.next()) {
     int userid = query.value(0).toInt();
     QString username = query.value(1).toString();
     QString email = query.value(2).toString();
-    qDebug() << userid << username << email;
-  }
+    QString scantime = query.value(3).toString();
 
-  // Populate the table with items
-  for (int row = 0; row < 100; ++row) {
-      for (int col = 0; col < 5; ++col) {
-          QTableWidgetItem *item = new QTableWidgetItem(QString("Item %1,%2").arg(row).arg(col));
-          table->setItem(row, col, item);
-      }
+    QTableWidgetItem *item1 = new QTableWidgetItem(QString::number(userid));
+    table->setItem(row, 0, item1);
+    QTableWidgetItem *item2 = new QTableWidgetItem(username);
+    table->setItem(row, 1, item2);
+    QTableWidgetItem *item3 = new QTableWidgetItem(email);
+    table->setItem(row, 2, item3);
+    QTableWidgetItem *item4 = new QTableWidgetItem(scantime);
+    table->setItem(row, 3, item4);
+    QTableWidgetItem *item5 = new QTableWidgetItem(QString("Login"));
+    table->setItem(row, 4, item5);
+    row++;
   }
-   // Set column headers
+  // Set column headers
   QStringList headers;
   headers << "UserId" << "Username" << "Email" << "Time" << "Action";
   table->setHorizontalHeaderLabels(headers);
