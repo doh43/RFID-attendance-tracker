@@ -22,6 +22,24 @@ void AdminWindow::setupGrid() {
 void AdminWindow::setupTable() {
   table = new QTableWidget(100,5);
 
+  QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+  db.setHostName("mysqlgroup10");
+  db.setPort(3306);
+  db.setDatabaseName("rfid_database");
+  db.setUserName("root");
+  db.setPassword("root"); //change later
+  if (!db.open()) {
+    qDebug() << "Database error occured: " << db.lastError().text();
+  }
+  QSqlQuery query;
+  query.exec("SELECT * FROM users");
+  while (query.next()) {
+    int userid = query.value(0).toInt();
+    QString username = query.value(1).toString();
+    QString email = query.value(2).toString();
+    qDebug() << userid << username << email;
+  }
+
   // Populate the table with items
   for (int row = 0; row < 100; ++row) {
       for (int col = 0; col < 5; ++col) {

@@ -1,4 +1,4 @@
-QT += core gui widgets multimedia
+QT += core gui widgets multimedia sql
 
 TARGET = group10
 TEMPLATE = app
