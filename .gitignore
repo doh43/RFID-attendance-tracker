@@ -1,0 +1,8 @@
+.qmake.stash
+Makefile
+group10.app
+.vscode
+.DS_Store
+*.o
+moc_predefs.h
+moc_scanbutton.cpp
