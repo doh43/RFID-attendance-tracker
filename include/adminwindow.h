@@ -12,6 +12,7 @@ class AdminWindow : public QMainWindow {
         void setupWindow();
         void setupGrid();
         void setupTable();
+        void closeWindow();
         ~AdminWindow();
         
     protected:

@@ -4,7 +4,6 @@
 #include <QString>
 #include "../include/rfidwindow.h"
 #include "../include/scanbutton.h"
-#include "../include/adminscanbutton.h"
 
 RfidWindow::RfidWindow(QWidget *parent) : QMainWindow(parent) {
     QWidget *central_widget = new QWidget(this);

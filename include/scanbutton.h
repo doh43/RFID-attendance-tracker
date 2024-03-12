@@ -28,8 +28,8 @@ class ScanButton : public QPushButton {
     signals:
         void rightClicked();
     private:
-        void openAccountWindow(UserWindow *account_window);
-        void openAccountWindow(AdminWindow *account_window);
+        void openAccountWindow();
+        void closeAccountWindow();  
 };
 
 #endif

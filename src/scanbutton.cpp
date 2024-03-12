@@ -13,21 +13,31 @@ ScanButton::~ScanButton() {
 }
 
 void ScanButton::mousePressEvent(QMouseEvent *event) {
-    std::cout << "ScanButton mousePressEvent called" << std::endl;
     if (event->button() == Qt::RightButton) {
         emit rightClicked();
     }
     QPushButton::mousePressEvent(event);
 }
 
+void ScanButton::openAccountWindow() {
+    this->setText("CHECKED-IN");
+    admin_window = new AdminWindow();
+    admin_window->show();
+}
+
+void ScanButton::closeAccountWindow() {
+    this->setText("ADMIN CHECK-IN");
+    admin_window->closeWindow();
+}
+
 void ScanButton::handleLeftClick() {
     if (account_status == checked_out) {
         account_status = checked_in;
-        this->setText("CHECKED-IN");
+        openAccountWindow();
     }
     else {
         account_status = checked_out;
-        this->setText("CHECK-IN");
+        closeAccountWindow();
     }
 }
 

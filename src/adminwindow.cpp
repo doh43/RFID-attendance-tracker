@@ -42,5 +42,9 @@ void AdminWindow::setupTable() {
 void AdminWindow::generateReport() {
 }
 
+void AdminWindow::closeWindow() {
+  close();
+}
+
 AdminWindow::~AdminWindow() {
 }
