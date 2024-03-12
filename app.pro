@@ -1,4 +1,4 @@
-QT += core gui widgets
+QT += core gui widgets multimedia
 
 TARGET = group10
 TEMPLATE = app
