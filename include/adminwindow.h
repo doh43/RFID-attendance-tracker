@@ -4,6 +4,10 @@
 #include <QGridLayout>
 #include <QTableWidget>
 #include <QHeaderView>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QDebug>
+#include <QSqlQuery>
 #include "adminuser.h"
 
 class AdminWindow : public QMainWindow {
