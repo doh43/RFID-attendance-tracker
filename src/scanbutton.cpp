@@ -34,12 +34,12 @@ void ScanButton::handleLeftClick() {
     if (account_status == checked_out) {
         account_status = checked_in;
         this->setText("CHECKED-IN");
-        QSound::play("../fx/correct1.wav");
+        QSound::play(":/fx/correct1.wav");
         openAccountWindow();
     }
     else {
         account_status = checked_out;
-        QSound::play("../fx/correct1.wav");
+        QSound::play(":/fx/correct1.wav");
         closeAccountWindow();
     }
 }
@@ -47,10 +47,10 @@ void ScanButton::handleLeftClick() {
 void ScanButton::handleRightClick() {
     if (account_status == checked_out) {
         this->setText("ERROR");
-        QSound::play("../fx/incorrect-chime.wav");
+        QSound::play(":/fx/incorrect-chime.wav");
     }
     else {
         this->setText("ERROR 2");
-        QSound::play("../fx/incorrect-chime.wav");
+        QSound::play(":/fx/incorrect-chime.wav");
     }
 }

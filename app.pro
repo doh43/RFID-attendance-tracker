@@ -9,3 +9,5 @@ SOURCES += \
 
 HEADERS += \
     $$PWD/include/*.h
+
+RESOURCES += fx.qrc
