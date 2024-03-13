@@ -1,3 +1,7 @@
+# Stage 3
+
+A temporary graphical user interface (GUI) with interactive buttons has been implemented to simulate RFID scanning and the retrieval of information from a MySQL database. This setup is in place while we continue configuring the necessary hardware for the Raspberry Pi.
+
 # Setting up Docker
 
 ## Create a Docker Network
@@ -29,4 +33,4 @@ Run
 
 # Populating Database for Testing
 
-Paste the `create_database.sql` script found inside the `./sql` directory inside your MySQL database to populate it with placeholder data.
+Please execute the `create_database.sql` script located in the `./sql` directory within your MySQL database to populate it with sample data.
