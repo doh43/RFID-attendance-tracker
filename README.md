@@ -10,20 +10,23 @@ A temporary graphical user interface (GUI) with interactive buttons has been imp
 
 ## Create MYSQL Instance
 
-`cd sql`
-`docker build -t mysqlgroup10 .`
+`cd sql` \
+`docker build -t mysqlgroup10 .`\
 `docker run --name mysqlgroup10 --network qt-mysql mysqlgroup10`
 
 ## Create QTApp
 
-Be in the group10 dir
+Be in the group10 dir\
 `docker build -t group10/app .`
 
 `cd wsl`
 
-Executes a .yml file that runs the application and sets up the GUI (mac X11 and WSL friendly)
+Executes a .yml file that runs the application and sets up the GUI (mac X11 and WSL friendly)\
 `docker compose up`
 
+Alternatively for mac users:\
+Create X11 server by following https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088 then run\
+`docker run -e DISPLAY=docker.for.mac.host.internal:0 --network qt-mysql group10/app`
 ## Errors
 
 If you see this:
