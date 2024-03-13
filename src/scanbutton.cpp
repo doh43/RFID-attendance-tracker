@@ -2,11 +2,14 @@
 #include <iostream>
 #include <QSound>
 #include <QMessageBox>
+#include <QPalette>
 #include "../include/scanbutton.h"
 
 ScanButton::ScanButton(int type_account, QWidget *parent) : QPushButton(parent) {
     account_status = checked_out;
     account_type = type_account;
+
+    updateColor();
 
     if (account_type == ADMIN) {
         this->setText("ADMIN CHECK-IN");
@@ -32,10 +35,12 @@ void ScanButton::mousePressEvent(QMouseEvent *event) {
 
 void ScanButton::openAccountWindow() {
     if (account_type == ADMIN) {
+        this->setText("ADMIN CHECKED-IN");
         admin_window = new AdminWindow();
         admin_window->show();
     }
     else {
+        this->setText("USER CHECKED-IN");
         user_window = new UserWindow();
         user_window->show();
     } 
@@ -52,16 +57,32 @@ void ScanButton::closeAccountWindow() {
     }
 }
 
+void ScanButton::updateColor() {
+    QColor defaultColor("#E3E4DB");  // Hex RGB
+    QColor selectedColor("#8F6593"); // Hex RGB
+    QPalette palette = this->palette();
+
+    if (account_status == checked_in) {
+        palette.setColor(QPalette::Button, selectedColor); // Change to the desired color
+    } 
+    else {
+        palette.setColor(QPalette::Button, defaultColor); // Revert to the original color
+    }
+
+    this->setPalette(palette);
+}
+
 void ScanButton::handleLeftClick() {
     if (account_status == checked_out) {
         account_status = checked_in;
-        this->setText("CHECKED-IN");
         QSound::play("../fx/correct1.wav");
+        updateColor();
         openAccountWindow();
     }
     else {
         account_status = checked_out;
         QSound::play("../fx/correct1.wav");
+        updateColor();
         closeAccountWindow();
     }
 }

@@ -31,7 +31,8 @@ class ScanButton : public QPushButton {
         void rightClicked();
     private:
         void openAccountWindow();
-        void closeAccountWindow();  
+        void closeAccountWindow();
+        void updateColor();  
 };
 
 #endif
