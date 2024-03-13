@@ -1,10 +1,20 @@
 /* Represents a sucessful RFID check in */
 #include <iostream>
 #include <QSound>
+#include <QMessageBox>
 #include "../include/scanbutton.h"
 
-ScanButton::ScanButton(const QString &text, QWidget *parent) : QPushButton(text, parent) {
+ScanButton::ScanButton(int type_account, QWidget *parent) : QPushButton(parent) {
     account_status = checked_out;
+    account_type = type_account;
+
+    if (account_type == ADMIN) {
+        this->setText("ADMIN CHECK-IN");
+    }
+    else {
+        this->setText("USER CHECK-IN");
+    }
+
     connect(this, &ScanButton::clicked, this, &ScanButton::handleLeftClick);
     connect(this, &ScanButton::rightClicked, this, &ScanButton::handleRightClick);
 }
@@ -21,13 +31,25 @@ void ScanButton::mousePressEvent(QMouseEvent *event) {
 }
 
 void ScanButton::openAccountWindow() {
-    admin_window = new AdminWindow();
-    admin_window->show();
+    if (account_type == ADMIN) {
+        admin_window = new AdminWindow();
+        admin_window->show();
+    }
+    else {
+        user_window = new UserWindow();
+        user_window->show();
+    } 
 }
 
 void ScanButton::closeAccountWindow() {
-    this->setText("ADMIN CHECK-IN");
-    admin_window->closeWindow();
+    if (account_type == ADMIN) {
+        this->setText("ADMIN CHECK-IN");
+        admin_window->closeWindow();
+    }
+    else {
+        this->setText("USER CHECK-IN");
+        user_window->close();
+    }
 }
 
 void ScanButton::handleLeftClick() {
@@ -46,11 +68,11 @@ void ScanButton::handleLeftClick() {
 
 void ScanButton::handleRightClick() {
     if (account_status == checked_out) {
-        this->setText("ERROR");
         QSound::play("../fx/incorrect-chime.wav");
+        QMessageBox::warning(nullptr, "Check-In Failed", "Your card may not have permission to access this system. Otherwise, a scanning issue occurred.");
     }
     else {
-        this->setText("ERROR 2");
         QSound::play("../fx/incorrect-chime.wav");
+        QMessageBox::warning(nullptr, "Check-Out Failed", "A scanning issue occurred. Try again.");
     }
 }

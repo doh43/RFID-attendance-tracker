@@ -6,6 +6,9 @@
 #include "../include/scanbutton.h"
 
 RfidWindow::RfidWindow(QWidget *parent) : QMainWindow(parent) {
+    setWindowTitle("RFID Scanner Simulation");
+    setGeometry(100, 100, 500, 500);
+
     QWidget *central_widget = new QWidget(this);
     setCentralWidget(central_widget);
 
@@ -13,10 +16,10 @@ RfidWindow::RfidWindow(QWidget *parent) : QMainWindow(parent) {
     // QLabel *label = new QLabel("Scanning Station");
     // grid_layout->addWidget(label, 0, 0);
 
-    ScanButton *button = new ScanButton(QString("CHECK-IN"), this);
+    ScanButton *button = new ScanButton(0, this);
     grid_layout->addWidget(button, 0, 0);
 
-    ScanButton *admin_button = new ScanButton(QString("ADMIN CHECK-IN"), this);
+    ScanButton *admin_button = new ScanButton(1, this);
     grid_layout->addWidget(admin_button, 1, 0);
 
     central_widget->setLayout(grid_layout);
