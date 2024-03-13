@@ -4,6 +4,7 @@
 #include <QMouseEvent>
 #include "adminwindow.h"
 #include "userwindow.h"
+#define ADMIN 1
 
 enum Status {
     checked_out = 0,
@@ -14,7 +15,7 @@ class ScanButton : public QPushButton {
     Q_OBJECT
 
     public:
-        ScanButton(const QString &text, QWidget *parent = nullptr);
+        ScanButton(int type_account, QWidget *parent = nullptr);
         ~ScanButton();
     public slots:
         virtual void handleLeftClick();
@@ -23,13 +24,15 @@ class ScanButton : public QPushButton {
         Status account_status;
         AdminWindow *admin_window;
         UserWindow *user_window;
+        int account_type;
     protected slots:
         void mousePressEvent(QMouseEvent *event);
     signals:
         void rightClicked();
     private:
         void openAccountWindow();
-        void closeAccountWindow();  
+        void closeAccountWindow();
+        void updateColor();  
 };
 
 #endif

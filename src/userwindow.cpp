@@ -4,6 +4,7 @@
  
 UserWindow::UserWindow(QWidget *parent):
 	QWidget(parent) {
+		setWindowTitle("User Window");
     	setFixedSize(800, 600);
     	greetingLabel = new QLabel("Hello *name*", this); // creates a label that will welcome the user
     	QFont greetingFont = greetingLabel->font();
