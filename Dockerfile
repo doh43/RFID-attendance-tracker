@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get install -y libqt5sql5-mysql && \
     apt-get install -y pulseaudio && \
     apt-get install -y mesa-utils && \
+    apt-get install -y doxygen && \
     rm -rf /var/lib/apt/lists/*
 
 # Your application setup here
