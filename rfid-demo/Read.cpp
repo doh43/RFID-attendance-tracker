@@ -53,7 +53,7 @@ int main() {
 
         try {
             // Check if UID exists in the database
-            std::unique_ptr<sql::PreparedStatement> pstmt(conn->prepareStatement("SELECT UID FROM cards WHERE UID = ?"));
+            std::unique_ptr<sql::PreparedStatement> pstmt(conn->prepareStatement("SELECT UID FROM users  WHERE UID = ?"));
             pstmt->setString(1, uidStr);
             std::unique_ptr<sql::ResultSet> res(pstmt->executeQuery());
 
@@ -62,7 +62,7 @@ int main() {
                 std::cout << "hello" << std::endl;
             } else {
                 // UID doesn't exist, insert into database
-                pstmt.reset(conn->prepareStatement("INSERT INTO cards (UID) VALUES (?)"));
+                pstmt.reset(conn->prepareStatement("INSERT INTO users (UID) VALUES (?)"));
                 pstmt->setString(1, uidStr);
                 pstmt->executeUpdate();
                 std::cout << "UID inserted into database." << std::endl;
