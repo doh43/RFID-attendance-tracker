@@ -1,20 +1,31 @@
-#ifndef RFID_WINDOW_H
-#define RFID_WINDOW_H
-#include <QMainWindow>
-#include "user.h"
-#include "adminuser.h"
+#ifndef RFIDWINDOW_H
+#define RFIDWINDOW_H
 
+#include <QMainWindow>
+
+/**
+ * @brief Represents the RFID scanner window.
+ * 
+ * This class provides a simulation of an RFID scanner window.
+ * It contains buttons for regular user and admin check-ins.
+ * 
+ * @author Tomas Garcia
+ */
 class RfidWindow : public QMainWindow {
     public:
+        /**
+        * @brief Constructs an RfidWindow object.
+        * 
+        * @param parent The parent widget.
+        */
         RfidWindow(QWidget *parent = nullptr);
+
+        /**
+        * @brief Destroys the RfidWindow object.
+        *
+        * This method has been left empty.
+        */
         ~RfidWindow();
-    protected:
-    
-    private:
-        void openAdminWindow(AdminUser *admin);
-        void openUserWindow(User *user);
-        void closeAdminWindow();
-        void closeUserWindow();
 };
 
-#endif
+#endif // RFIDWINDOW_H
