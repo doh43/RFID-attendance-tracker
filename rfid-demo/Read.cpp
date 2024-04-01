@@ -28,7 +28,7 @@ int main() {
 
     // Initialize the MySQL connection
     sql::mysql::MySQL_Driver* driver = sql::mysql::get_mysql_driver_instance();
-    std::unique_ptr<sql::Connection> conn(driver->connect("tcp://127.0.0.1:3306", "root", "root")); 
+    std::unique_ptr<sql::Connection> conn(driver->connect("tcp://127.0.0.1:3307", "root", "root")); 
     conn->setSchema("rfid_database"); 
 
     while (1) {
