@@ -1,12 +1,6 @@
 CREATE DATABASE rfid_database;
 USE rfid_database;
 
-/* For testing UID retrieval */
-CREATE TABLE cards (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255)
-);
-
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     UID VARCHAR(255) NOT NULL UNIQUE,
@@ -17,6 +11,7 @@ CREATE TABLE users (
 CREATE TABLE admins (
     admin_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
+    UID VARCHAR(255) NOT NULL UNIQUE,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
