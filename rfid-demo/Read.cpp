@@ -58,8 +58,9 @@ int main() {
             std::unique_ptr<sql::ResultSet> res(pstmt->executeQuery());
 
             if (res->next()) {
-                // UID exists, print "hello"
-                std::cout << "hello" << std::endl;
+                // UID exists, print "Hello [username]"
+                std::string username = res->getString("username");
+                std::cout << "Hello " << username << std::endl;
             } else {
                 // UID doesn't exist, insert into database
                 pstmt.reset(conn->prepareStatement("INSERT INTO users (UID) VALUES (?)"));
