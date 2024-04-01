@@ -1,4 +1,7 @@
-/* Represents the window that opens when an admin user logs in */
+/**
+ * @file adminwindow.cpp
+ * @brief The window that shows up when the admin logs into the system
+*/
 #include "../include/adminwindow.h"
 
 AdminWindow::AdminWindow() {
@@ -10,13 +13,6 @@ void AdminWindow::setupWindow() {
   this->resize(1000,540);
   this->setWindowTitle("Admin Window");
   this->show();
-}
-
-void AdminWindow::setupGrid() {
-  gridLayout = new QGridLayout(this);
-  gridLayout->setSpacing(0);
-  gridLayout->setContentsMargins(0,0,0,0);
-  this->setLayout(gridLayout);
 }
 
 void AdminWindow::setupTable() {
