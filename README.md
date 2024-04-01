@@ -2,14 +2,14 @@
 
 ## Step 0: Downloading Docker
 
-This application uses Docker to ensure cross-platform compatibility. 
+This application uses Docker to ensure cross-platform compatibility.
 If you do not have it, it can be downloaded from Docker's official website: https://www.docker.com/
 
 ## Step 1: Create a Docker Network
 
 `docker network create qt-mysql`
 
-## Step 1.5: Automated Image Setup 
+## Step 1.5: Automated Image Setup
 
 The bin directory contains some shell scripts that automate the setups for the next two steps. However, they are only compatible with UNIX-based Operating Systems (Linux and MacOS) due to their use of the bash shell and UNIX directory syntax.
 
@@ -32,7 +32,7 @@ In a bash terminal (in the group10 directory): \
 From the **group10** directory:
 `cd sql` \
 `docker build -t mysqlgroup10 .` \
-`docker run --name mysqlgroup10 --network qt-mysql mysqlgroup10`
+`docker run --name mysqlgroup10 --network qt-mysql -p 3307:3306 mysqlgroup10`
 
 ## Step 3: Set Up the Qt App
 
@@ -57,9 +57,14 @@ From the **group10** directory:
 Create X11 server by following https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088 then run: \
 `docker run -e DISPLAY=docker.for.mac.host.internal:0 --network qt-mysql group10/app`
 
+#### For the PI:
+
+`docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network qt-mysql group10/app`
+
 ## Step 4: Closing Docker Containers and Images
 
 After you are done using the program, go into Docker Desktop and do the following:
+
 - Go into the **Containers** tab
 - Press the stop button for the mysqlgroup10 and wsl containers (in Actions)
   - The wsl container may not need to be stopped if the application windows were closed
@@ -74,4 +79,9 @@ Run
 `docker rm XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
 
 ## Populating Database for Testing
+
 Please execute the `create_database.sql` script located in the `./sql` directory within your MySQL database to populate it with sample data.
+
+## Running the Scanner
+
+To build read.cpp run `g++ MFRC522.cpp Read.cpp -std=c++11 -lbcm2835 -lmysqlcppconn` and type `sudo ./a.out` to run the RFID scanner.

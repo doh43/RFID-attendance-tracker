@@ -1,4 +1,4 @@
-FROM mysql
+FROM biarms/mysql
 
 ENV MYSQL_ROOT_PASSWORD=root
 
