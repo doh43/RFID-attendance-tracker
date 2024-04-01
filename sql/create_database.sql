@@ -28,3 +28,5 @@ INSERT INTO users(UID, username, email) VALUES("E3B8E74F", "Taejun", "tha7@uwo.c
 
 INSERT INTO scans(user_id, tag_id) VALUES(1, "ethantag");
 INSERT INTO scans(user_id, tag_id) VALUES(2, "Taejuntag");
+
+INSERT INTO admins(user_id,UID) VALUES(2,"E3B8E74F");
