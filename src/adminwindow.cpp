@@ -7,12 +7,19 @@
 AdminWindow::AdminWindow() {
   setupWindow();
   setupTable();
+  pollDB();
 }
 
 void AdminWindow::setupWindow() {
   this->resize(1000,540);
   this->setWindowTitle("Admin Window");
   this->show();
+}
+
+void AdminWindow::pollDB() {
+  QTimer *timer = new QTimer(this);
+  connect(timer, &QTimer::timeout, this, &AdminWindow::setupTable);
+  timer->start(10000);
 }
 
 void AdminWindow::setupTable() {

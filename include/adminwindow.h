@@ -14,6 +14,7 @@
 #include <QSqlDatabase>
 #include <QDebug>
 #include <QSqlQuery>
+#include <QTimer>
 #include "adminuser.h"
 
 /**
@@ -21,6 +22,7 @@
  * @brief Subclass of the QMainWindow class. Shows the login/logout data of users.
 */
 class AdminWindow : public QMainWindow {
+    Q_OBJECT
     public:
         /**
          * @brief Constructor for the AdminWindow class
@@ -31,6 +33,11 @@ class AdminWindow : public QMainWindow {
          * @brief Sets up default values for the window
         */
         void setupWindow();
+
+        /**
+         * @brief Polls the database for changes every 10 seconds.
+        */
+        void pollDB();
 
         /**
          * @brief Sets up the table widget for displaying the database contents.
