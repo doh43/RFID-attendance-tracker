@@ -18,6 +18,9 @@ ScanButton::ScanButton(int type_account, QWidget *parent) : QPushButton(parent) 
         this->setText("USER CHECK-IN");
     }
 
+    // Sets the button's size policy
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
     connect(this, &ScanButton::clicked, this, &ScanButton::handleLeftClick);
     connect(this, &ScanButton::rightClicked, this, &ScanButton::handleRightClick);
 }
@@ -58,8 +61,8 @@ void ScanButton::closeAccountWindow() {
 }
 
 void ScanButton::updateColor() {
-    QColor defaultColor("#E3E4DB");  // Hex RGB
-    QColor selectedColor("#8F6593"); // Hex RGB
+    QColor defaultColor("#BAC1B8");  // Hex RGB
+    QColor selectedColor("#0C7C59"); // Hex RGB
     QPalette palette = this->palette();
 
     if (account_status == checked_in) {
