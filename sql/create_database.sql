@@ -4,12 +4,12 @@ USE rfid_database;
 /* For testing UID retrieval */
 CREATE TABLE cards (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    UID VARCHAR(255) NOT NULL UNIQUE,
     username VARCHAR(255)
 );
 
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
+    UID VARCHAR(255) NOT NULL UNIQUE,
     username VARCHAR(255) NOT NULL, 
     email VARCHAR(255)
 );
@@ -28,8 +28,8 @@ CREATE TABLE scans (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-INSERT INTO users(username, email) VALUES("Ethan", "ewakefi@uwo.ca");
-INSERT INTO users(username, email) VALUES("Taejun", "tha7@uwo.ca");
+INSERT INTO users(UID, username, email) VALUES("64A63141", "Ethan", "ewakefi@uwo.ca");
+INSERT INTO users(UID, username, email) VALUES("E3B8E74F", "Taejun", "tha7@uwo.ca");
 
 INSERT INTO scans(user_id, tag_id) VALUES(1, "ethantag");
 INSERT INTO scans(user_id, tag_id) VALUES(2, "Taejuntag");
