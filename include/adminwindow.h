@@ -43,7 +43,7 @@ class AdminWindow : public QMainWindow {
         void closeWindow();
 
         /**
-         * @brief Detructor for AdminWindow class
+         * @brief Destructor for AdminWindow class
         */
         ~AdminWindow();
         
