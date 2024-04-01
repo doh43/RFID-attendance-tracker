@@ -42,6 +42,10 @@ void AdminWindow::setupTable() {
     QString username = query.value(1).toString();
     QString email = query.value(2).toString();
     QString scantime = query.value(3).toString();
+    QString querystring = QString("SELECT COUNT(*) FROM scans WHERE user_id=%1 GROUP BY user_id").arg(query.value(0).toString());
+    QSqlQuery query2;
+    query2.exec(querystring);
+    QString loginstate = query2.value(0).toInt() % 2 ? QString("Logout"):QString("Login");
 
     QTableWidgetItem *item1 = new QTableWidgetItem(QString::number(userid));
     table->setItem(row, 0, item1);
@@ -51,7 +55,7 @@ void AdminWindow::setupTable() {
     table->setItem(row, 2, item3);
     QTableWidgetItem *item4 = new QTableWidgetItem(scantime);
     table->setItem(row, 3, item4);
-    QTableWidgetItem *item5 = new QTableWidgetItem(QString("Login"));
+    QTableWidgetItem *item5 = new QTableWidgetItem(loginstate);
     table->setItem(row, 4, item5);
     row++;
   }

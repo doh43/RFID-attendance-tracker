@@ -15,6 +15,7 @@
 #include <QDebug>
 #include <QSqlQuery>
 #include <QTimer>
+#include <string>
 #include "adminuser.h"
 
 /**
