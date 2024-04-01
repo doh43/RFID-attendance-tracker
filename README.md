@@ -32,7 +32,7 @@ In a bash terminal (in the group10 directory): \
 From the **group10** directory:
 `cd sql` \
 `docker build -t mysqlgroup10 .` \
-`docker run --name mysqlgroup10 --network qt-mysql mysqlgroup10`
+`docker run --name mysqlgroup10 --network qt-mysql -p 3307:3306 mysqlgroup10`
 
 ## Step 3: Set Up the Qt App
 
@@ -56,6 +56,9 @@ From the **group10** directory:
 
 Create X11 server by following https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088 then run: \
 `docker run -e DISPLAY=docker.for.mac.host.internal:0 --network qt-mysql group10/app`
+
+#### For the PI:
+`docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network qt-mysql group10/app`
 
 ## Step 4: Closing Docker Containers and Images
 
