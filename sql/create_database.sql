@@ -4,7 +4,7 @@ USE rfid_database;
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL, 
-    email VARCHAR(255),
+    email VARCHAR(255)
 );
 
 CREATE TABLE admins (
@@ -20,3 +20,9 @@ CREATE TABLE scans (
     scan_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+
+INSERT INTO users(username, email) VALUES("Ethan", "ewakefi@uwo.ca");
+INSERT INTO users(username, email) VALUES("Taejun", "tha7@uwo.ca");
+
+INSERT INTO scans(user_id, tag_id) VALUES(1, "ethantag");
+INSERT INTO scans(user_id, tag_id) VALUES(2, "Taejuntag");

@@ -1,0 +1,4 @@
+<map id="ScanButton" name="ScanButton">
+<area shape="rect" id="node3" href="$classAdminWindow.html" title="Subclass of the QMainWindow class. Shows the login/logout data of users. " alt="" coords="137,81,253,108"/>
+<area shape="rect" id="node5" href="$classUserWindow.html" title="Represents the window that opens when a regular user logs in. " alt="" coords="277,81,381,108"/>
+</map>

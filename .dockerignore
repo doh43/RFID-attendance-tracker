@@ -1,0 +1,6 @@
+group10.app
+.vscode
+.DS_Store
+.qmake.stash
+Makefile
+sql

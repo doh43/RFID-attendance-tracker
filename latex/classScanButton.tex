@@ -1,0 +1,186 @@
+\hypertarget{classScanButton}{}\section{Scan\+Button Class Reference}
+\label{classScanButton}\index{Scan\+Button@{Scan\+Button}}
+
+
+Represents a successful R\+F\+ID scan button.  
+
+
+
+
+{\ttfamily \#include $<$scanbutton.\+h$>$}
+
+
+
+Inheritance diagram for Scan\+Button\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{classScanButton__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Scan\+Button\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classScanButton__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScanButton_a6992033b8da2e3182f2956ab346b9a5a}\label{classScanButton_a6992033b8da2e3182f2956ab346b9a5a}} 
+void \hyperlink{classScanButton_a6992033b8da2e3182f2956ab346b9a5a}{right\+Clicked} ()
+\begin{DoxyCompactList}\small\item\em Signal emitted when right clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classScanButton_a85de89a14f571d120f1d602c5642c28d}{Scan\+Button} (int type\+\_\+account, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classScanButton}{Scan\+Button} object. \end{DoxyCompactList}\item 
+\hyperlink{classScanButton_a080940ebdacd95fa1c2b03895da87e57}{$\sim$\+Scan\+Button} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \hyperlink{classScanButton}{Scan\+Button} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classScanButton_ad2d0bac19d1ec704cbdf2bc07b0b8641}{mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em Handles mouse press events. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classScanButton_a41e30224cc4068cb4cb23341561c41fa}{handle\+Left\+Click} ()
+\begin{DoxyCompactList}\small\item\em Handles left click events. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classScanButton_a1ee18ddda87535b007a2eca7899d0879}{handle\+Right\+Click} ()
+\begin{DoxyCompactList}\small\item\em Handles right click events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Status \hyperlink{classScanButton_a22c7452ff6724ab7c1aa08f6af142ea7}{account\+\_\+status}
+\item 
+\hyperlink{classAdminWindow}{Admin\+Window} $\ast$ \hyperlink{classScanButton_a078d1a2a95e8f579fa163c6d903337aa}{admin\+\_\+window}
+\item 
+\hyperlink{classUserWindow}{User\+Window} $\ast$ \hyperlink{classScanButton_a5a84fdd77fd4aff624e54914019c711e}{user\+\_\+window}
+\item 
+int \hyperlink{classScanButton_a6b492c7a79ec5cf43b5b4f6f20aed636}{account\+\_\+type}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScanButton_a54e1b03ed5db51ce94f30b55a472651d}\label{classScanButton_a54e1b03ed5db51ce94f30b55a472651d}} 
+void \hyperlink{classScanButton_a54e1b03ed5db51ce94f30b55a472651d}{open\+Account\+Window} ()
+\begin{DoxyCompactList}\small\item\em Opens the respective account window based on the account type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classScanButton_afe68603aa55c0d9b818ebf98b9df24aa}\label{classScanButton_afe68603aa55c0d9b818ebf98b9df24aa}} 
+void \hyperlink{classScanButton_afe68603aa55c0d9b818ebf98b9df24aa}{close\+Account\+Window} ()
+\begin{DoxyCompactList}\small\item\em Closes the respective account window based on the account type. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classScanButton_a425b36458139bda8abcb1a0a41fd2dc8}\label{classScanButton_a425b36458139bda8abcb1a0a41fd2dc8}} 
+void \hyperlink{classScanButton_a425b36458139bda8abcb1a0a41fd2dc8}{update\+Color} ()
+\begin{DoxyCompactList}\small\item\em Updates the button color based on the account status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents a successful R\+F\+ID scan button. 
+
+This class provides functionality for a button that simulates an R\+F\+ID scanning operation. It handles left and right click events to perform check-\/in/check-\/out operations and opens respective windows for admin and regular users.
+
+\begin{DoxyAuthor}{Author}
+Tomas Garcia 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classScanButton_a85de89a14f571d120f1d602c5642c28d}\label{classScanButton_a85de89a14f571d120f1d602c5642c28d}} 
+\index{Scan\+Button@{Scan\+Button}!Scan\+Button@{Scan\+Button}}
+\index{Scan\+Button@{Scan\+Button}!Scan\+Button@{Scan\+Button}}
+\subsubsection{\texorpdfstring{Scan\+Button()}{ScanButton()}}
+{\footnotesize\ttfamily Scan\+Button\+::\+Scan\+Button (\begin{DoxyParamCaption}\item[{int}]{type\+\_\+account,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructs a \hyperlink{classScanButton}{Scan\+Button} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type\+\_\+account} & The type of account (A\+D\+M\+IN or U\+S\+ER) that the button is simulating a scan for. \\
+\hline
+{\em parent} & The parent widget. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScanButton_a080940ebdacd95fa1c2b03895da87e57}\label{classScanButton_a080940ebdacd95fa1c2b03895da87e57}} 
+\index{Scan\+Button@{Scan\+Button}!````~Scan\+Button@{$\sim$\+Scan\+Button}}
+\index{````~Scan\+Button@{$\sim$\+Scan\+Button}!Scan\+Button@{Scan\+Button}}
+\subsubsection{\texorpdfstring{$\sim$\+Scan\+Button()}{~ScanButton()}}
+{\footnotesize\ttfamily Scan\+Button\+::$\sim$\+Scan\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroys the \hyperlink{classScanButton}{Scan\+Button} object. 
+
+This method has been left empty. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classScanButton_a41e30224cc4068cb4cb23341561c41fa}\label{classScanButton_a41e30224cc4068cb4cb23341561c41fa}} 
+\index{Scan\+Button@{Scan\+Button}!handle\+Left\+Click@{handle\+Left\+Click}}
+\index{handle\+Left\+Click@{handle\+Left\+Click}!Scan\+Button@{Scan\+Button}}
+\subsubsection{\texorpdfstring{handle\+Left\+Click}{handleLeftClick}}
+{\footnotesize\ttfamily virtual void Scan\+Button\+::handle\+Left\+Click (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+
+
+Handles left click events. 
+
+Because left clicks represent successful scans (check-\/ins and checkouts), this method handles all operations required to simulate it. \mbox{\Hypertarget{classScanButton_a1ee18ddda87535b007a2eca7899d0879}\label{classScanButton_a1ee18ddda87535b007a2eca7899d0879}} 
+\index{Scan\+Button@{Scan\+Button}!handle\+Right\+Click@{handle\+Right\+Click}}
+\index{handle\+Right\+Click@{handle\+Right\+Click}!Scan\+Button@{Scan\+Button}}
+\subsubsection{\texorpdfstring{handle\+Right\+Click}{handleRightClick}}
+{\footnotesize\ttfamily virtual void Scan\+Button\+::handle\+Right\+Click (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+
+
+Handles right click events. 
+
+Because right clicks represent unsuccessful scans, this method handles all operations required to simulate it. \mbox{\Hypertarget{classScanButton_ad2d0bac19d1ec704cbdf2bc07b0b8641}\label{classScanButton_ad2d0bac19d1ec704cbdf2bc07b0b8641}} 
+\index{Scan\+Button@{Scan\+Button}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Scan\+Button@{Scan\+Button}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event}{mousePressEvent}}
+{\footnotesize\ttfamily void Scan\+Button\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [slot]}}
+
+
+
+Handles mouse press events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The mouse press event. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classScanButton_a22c7452ff6724ab7c1aa08f6af142ea7}\label{classScanButton_a22c7452ff6724ab7c1aa08f6af142ea7}} 
+\index{Scan\+Button@{Scan\+Button}!account\+\_\+status@{account\+\_\+status}}
+\index{account\+\_\+status@{account\+\_\+status}!Scan\+Button@{Scan\+Button}}
+\subsubsection{\texorpdfstring{account\+\_\+status}{account\_status}}
+{\footnotesize\ttfamily Status Scan\+Button\+::account\+\_\+status\hspace{0.3cm}{\ttfamily [protected]}}
+
+The current account status (checked\+\_\+out or checked\+\_\+in). \mbox{\Hypertarget{classScanButton_a6b492c7a79ec5cf43b5b4f6f20aed636}\label{classScanButton_a6b492c7a79ec5cf43b5b4f6f20aed636}} 
+\index{Scan\+Button@{Scan\+Button}!account\+\_\+type@{account\+\_\+type}}
+\index{account\+\_\+type@{account\+\_\+type}!Scan\+Button@{Scan\+Button}}
+\subsubsection{\texorpdfstring{account\+\_\+type}{account\_type}}
+{\footnotesize\ttfamily int Scan\+Button\+::account\+\_\+type\hspace{0.3cm}{\ttfamily [protected]}}
+
+The type of account (A\+D\+M\+IN or U\+S\+ER). \mbox{\Hypertarget{classScanButton_a078d1a2a95e8f579fa163c6d903337aa}\label{classScanButton_a078d1a2a95e8f579fa163c6d903337aa}} 
+\index{Scan\+Button@{Scan\+Button}!admin\+\_\+window@{admin\+\_\+window}}
+\index{admin\+\_\+window@{admin\+\_\+window}!Scan\+Button@{Scan\+Button}}
+\subsubsection{\texorpdfstring{admin\+\_\+window}{admin\_window}}
+{\footnotesize\ttfamily \hyperlink{classAdminWindow}{Admin\+Window}$\ast$ Scan\+Button\+::admin\+\_\+window\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pointer to the admin window object. \mbox{\Hypertarget{classScanButton_a5a84fdd77fd4aff624e54914019c711e}\label{classScanButton_a5a84fdd77fd4aff624e54914019c711e}} 
+\index{Scan\+Button@{Scan\+Button}!user\+\_\+window@{user\+\_\+window}}
+\index{user\+\_\+window@{user\+\_\+window}!Scan\+Button@{Scan\+Button}}
+\subsubsection{\texorpdfstring{user\+\_\+window}{user\_window}}
+{\footnotesize\ttfamily \hyperlink{classUserWindow}{User\+Window}$\ast$ Scan\+Button\+::user\+\_\+window\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pointer to the user window object. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/scanbutton.\+h\end{DoxyCompactItemize}

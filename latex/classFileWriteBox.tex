@@ -1,0 +1,152 @@
+\hypertarget{classFileWriteBox}{}\section{File\+Write\+Box Class Reference}
+\label{classFileWriteBox}\index{File\+Write\+Box@{File\+Write\+Box}}
+
+
+A text box that displays the current contents of a .txt file and allows the user to update them.  
+
+
+
+
+{\ttfamily \#include $<$filewritebox.\+h$>$}
+
+
+
+Inheritance diagram for File\+Write\+Box\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classFileWriteBox__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for File\+Write\+Box\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classFileWriteBox__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFileWriteBox_a8074a794a08c2417cd54ff2175729e1a}{File\+Write\+Box} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a \hyperlink{classFileWriteBox}{File\+Write\+Box} object. \end{DoxyCompactList}\item 
+\hyperlink{classFileWriteBox_acb7de5b93818d27ce99a5c6566ba0ec5}{$\sim$\+File\+Write\+Box} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \hyperlink{classFileWriteBox}{File\+Write\+Box} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classFileWriteBox_a2567b35b54e7f5e87069c9ea5dc82b9b}{save\+To\+File} ()
+\begin{DoxyCompactList}\small\item\em Saves the changes made to the file. \end{DoxyCompactList}\item 
+void \hyperlink{classFileWriteBox_a5db76473f102a2cc369390cd0638eb86}{discard\+Changes} ()
+\begin{DoxyCompactList}\small\item\em Discards the changes made and reverts to the previous file contents. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileWriteBox_a3bd2a29dba4e0815348219071703654d}\label{classFileWriteBox_a3bd2a29dba4e0815348219071703654d}} 
+void \hyperlink{classFileWriteBox_a3bd2a29dba4e0815348219071703654d}{display\+File\+Content} ()
+\begin{DoxyCompactList}\small\item\em Displays the current contents of the file in the text box. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classFileWriteBox_a55790801cd79bb5a36384c167825f507}\label{classFileWriteBox_a55790801cd79bb5a36384c167825f507}} 
+void \hyperlink{classFileWriteBox_a55790801cd79bb5a36384c167825f507}{layout\+Setup} ()
+\begin{DoxyCompactList}\small\item\em Sets up the layout for the file write box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Text\+Edit $\ast$ \hyperlink{classFileWriteBox_a0dd330297bb74bcfdda915aeb7561fb6}{text\+\_\+box}
+\item 
+Q\+Push\+Button $\ast$ \hyperlink{classFileWriteBox_a2ed017f414c666d3e31cb02cd39d909d}{save\+\_\+button}
+\item 
+Q\+Push\+Button $\ast$ \hyperlink{classFileWriteBox_ae6599208365ef57c160e99e67f7ebe15}{discard\+\_\+button}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A text box that displays the current contents of a .txt file and allows the user to update them. 
+
+This class provides a graphical user interface for viewing and editing the contents of a text file. It includes functionalities to display the file contents, save changes, and discard changes.
+
+\begin{DoxyAuthor}{Author}
+Tomas Garcia 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classFileWriteBox_a8074a794a08c2417cd54ff2175729e1a}\label{classFileWriteBox_a8074a794a08c2417cd54ff2175729e1a}} 
+\index{File\+Write\+Box@{File\+Write\+Box}!File\+Write\+Box@{File\+Write\+Box}}
+\index{File\+Write\+Box@{File\+Write\+Box}!File\+Write\+Box@{File\+Write\+Box}}
+\subsubsection{\texorpdfstring{File\+Write\+Box()}{FileWriteBox()}}
+{\footnotesize\ttfamily File\+Write\+Box\+::\+File\+Write\+Box (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructs a \hyperlink{classFileWriteBox}{File\+Write\+Box} object. 
+
+A \hyperlink{classFileWriteBox}{File\+Write\+Box} object is composed of a Q\+Text\+Edit box , and two buttons. One of the buttons is used to save the changes made by the user using the text edit and the other one is used to discard them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent widget. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFileWriteBox_acb7de5b93818d27ce99a5c6566ba0ec5}\label{classFileWriteBox_acb7de5b93818d27ce99a5c6566ba0ec5}} 
+\index{File\+Write\+Box@{File\+Write\+Box}!````~File\+Write\+Box@{$\sim$\+File\+Write\+Box}}
+\index{````~File\+Write\+Box@{$\sim$\+File\+Write\+Box}!File\+Write\+Box@{File\+Write\+Box}}
+\subsubsection{\texorpdfstring{$\sim$\+File\+Write\+Box()}{~FileWriteBox()}}
+{\footnotesize\ttfamily File\+Write\+Box\+::$\sim$\+File\+Write\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroys the \hyperlink{classFileWriteBox}{File\+Write\+Box} object. 
+
+This method has been left empty. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileWriteBox_a5db76473f102a2cc369390cd0638eb86}\label{classFileWriteBox_a5db76473f102a2cc369390cd0638eb86}} 
+\index{File\+Write\+Box@{File\+Write\+Box}!discard\+Changes@{discard\+Changes}}
+\index{discard\+Changes@{discard\+Changes}!File\+Write\+Box@{File\+Write\+Box}}
+\subsubsection{\texorpdfstring{discard\+Changes}{discardChanges}}
+{\footnotesize\ttfamily void File\+Write\+Box\+::discard\+Changes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Discards the changes made and reverts to the previous file contents. 
+
+Connected to the clicked signal of the discard button. \mbox{\Hypertarget{classFileWriteBox_a2567b35b54e7f5e87069c9ea5dc82b9b}\label{classFileWriteBox_a2567b35b54e7f5e87069c9ea5dc82b9b}} 
+\index{File\+Write\+Box@{File\+Write\+Box}!save\+To\+File@{save\+To\+File}}
+\index{save\+To\+File@{save\+To\+File}!File\+Write\+Box@{File\+Write\+Box}}
+\subsubsection{\texorpdfstring{save\+To\+File}{saveToFile}}
+{\footnotesize\ttfamily void File\+Write\+Box\+::save\+To\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Saves the changes made to the file. 
+
+Connected to the clicked signal of the save button. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classFileWriteBox_ae6599208365ef57c160e99e67f7ebe15}\label{classFileWriteBox_ae6599208365ef57c160e99e67f7ebe15}} 
+\index{File\+Write\+Box@{File\+Write\+Box}!discard\+\_\+button@{discard\+\_\+button}}
+\index{discard\+\_\+button@{discard\+\_\+button}!File\+Write\+Box@{File\+Write\+Box}}
+\subsubsection{\texorpdfstring{discard\+\_\+button}{discard\_button}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ File\+Write\+Box\+::discard\+\_\+button\hspace{0.3cm}{\ttfamily [private]}}
+
+Button to discard changes and revert to the previous file contents. \mbox{\Hypertarget{classFileWriteBox_a2ed017f414c666d3e31cb02cd39d909d}\label{classFileWriteBox_a2ed017f414c666d3e31cb02cd39d909d}} 
+\index{File\+Write\+Box@{File\+Write\+Box}!save\+\_\+button@{save\+\_\+button}}
+\index{save\+\_\+button@{save\+\_\+button}!File\+Write\+Box@{File\+Write\+Box}}
+\subsubsection{\texorpdfstring{save\+\_\+button}{save\_button}}
+{\footnotesize\ttfamily Q\+Push\+Button$\ast$ File\+Write\+Box\+::save\+\_\+button\hspace{0.3cm}{\ttfamily [private]}}
+
+Button to save changes to the file. \mbox{\Hypertarget{classFileWriteBox_a0dd330297bb74bcfdda915aeb7561fb6}\label{classFileWriteBox_a0dd330297bb74bcfdda915aeb7561fb6}} 
+\index{File\+Write\+Box@{File\+Write\+Box}!text\+\_\+box@{text\+\_\+box}}
+\index{text\+\_\+box@{text\+\_\+box}!File\+Write\+Box@{File\+Write\+Box}}
+\subsubsection{\texorpdfstring{text\+\_\+box}{text\_box}}
+{\footnotesize\ttfamily Q\+Text\+Edit$\ast$ File\+Write\+Box\+::text\+\_\+box\hspace{0.3cm}{\ttfamily [private]}}
+
+Text edit widget to display and edit the file contents. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/filewritebox.\+h\end{DoxyCompactItemize}
