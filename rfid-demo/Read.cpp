@@ -53,7 +53,7 @@ int main() {
 
         try {
             // Check if UID exists in the database
-            std::unique_ptr<sql::PreparedStatement> pstmt(conn->prepareStatement("SELECT UID FROM users  WHERE UID = ?"));
+            std::unique_ptr<sql::PreparedStatement> pstmt(conn->prepareStatement("SELECT UID, username FROM users  WHERE UID = ?"));
             pstmt->setString(1, uidStr);
             std::unique_ptr<sql::ResultSet> res(pstmt->executeQuery());
 
