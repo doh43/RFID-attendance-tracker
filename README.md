@@ -1,3 +1,19 @@
+# Setup Instructions for RC522 RFID Reader on Raspberry Pi
+## Step 1: Install the Latest Versions
+1. `sudo apt-get update` & `sudo apt-get upgrade` & `raspi-update` \ 
+2. Make sure you have SPI in raspi-config (inside Interfacing Options) \
+3. Make sure that Device tree is enabled in raspi config (advanced section) \
+
+## Step 2: BCM2835 Library Installation
+Install the latest version from BCM2835 from : http://www.airspayce.com/mikem/bcm2835/ \
+1. wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.56.tar.gz \
+2. tar -zxf bcm2835-1.56.tar.gz \ 
+3. cd bcm2835-1.56 \ 
+4. ./configure \ 
+5. sudo make check \
+6. sudo make install \
+7. cd  .. \
+
 # Application Setup Instructions
 
 ## Step 0: Downloading Docker
@@ -32,7 +48,7 @@ In a bash terminal (in the group10 directory): \
 From the **group10** directory:
 `cd sql` \
 `docker build -t mysqlgroup10 .` \
-`docker run --name mysqlgroup10 --network qt-mysql -p 3307:3306 mysqlgroup10`
+`docker run --name mysqlgroup10 --network qt-mysql -p 3307:3306 mysqlgroup10` \
 
 ## Step 3: Set Up the Qt App
 
@@ -50,20 +66,20 @@ From the **group10** directory:
 #### For Linux users:
 
 `cd wsl` \
-`docker compose up` Executes a .yml file that runs the application and sets up the GUI (mac X11 and WSL friendly)
+`docker compose up` Executes a .yml file that runs the application and sets up the GUI (mac X11 and WSL friendly) \
 
 #### For Mac users:
 
 Create X11 server by following https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088 then run: \
-`docker run -e DISPLAY=docker.for.mac.host.internal:0 --network qt-mysql group10/app`
+`docker run -e DISPLAY=docker.for.mac.host.internal:0 --network qt-mysql group10/app` \
 
-#### For the PI:
+#### For Raspberry Pi:
 
-`docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network qt-mysql group10/app`
+`docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network qt-mysql group10/app` \
 
 ## Step 4: Running the RFID Scanner
-
-Run `g++ MFRC522.cpp read.cpp -std=c++11 -lbcm2835 -lmysqlcppconn` to build `read.cpp` inside the `backend` folder. Type `sudo ./a.out` to run the RFID scanner.
+Program `read.cpp` will read RFID cards and log them inside a MySQL database. 
+Navigate to the `backend` folder and run \ `g++ MFRC522.cpp read.cpp -std=c++11 -lbcm2835 -lmysqlcppconn`. \ Run `sudo ./a.out` to start the scanner. \
 
 ## Step 5: Closing Docker Containers and Images
 
@@ -73,11 +89,11 @@ After you are done using the program, go into Docker Desktop and do the followin
 - Press the stop button for the mysqlgroup10 and wsl containers (in Actions)
   - The wsl container may not need to be stopped if the application windows were closed
 
-To remove unused, dangling images, run `docker image prune` from a bash terminal
+To remove unused, dangling images, run `docker image prune` from a bash terminal \ 
 
 ## Opening a Shell Session
 
-Run `docker exec -it [container id] sh` to open an interactive shell session inside the specified running container. This is particularly useful for debugging, modifying configuration files, inspecting the container's environment, or any other task that requires direct command-line access to the container's internal environment.
+Run `docker exec -it [container id] sh` to open an interactive shell session inside the specified running container. This is particularly useful for debugging, modifying configuration files, inspecting the container's environment, or any other task that requires direct command-line access to the container's internal environment. \
 
 ## Errors
 
@@ -86,4 +102,3 @@ Error response from daemon: Conflict. The container name "/containername" is alr
 Run
 `docker rm XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
 
-If you see `QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root' No protocol specified qt.qpa.screen: QXcbConnection: Could not connect to display :0 Could not connect to any X display` try running `xhost +`.
