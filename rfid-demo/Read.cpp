@@ -43,7 +43,7 @@ int main() {
         std::stringstream ss;
         for (byte i = 0; i < mfrc.uid.size; ++i) {
             if (i > 0)
-                ss << ""; // Add a space between bytes
+                ss << ""; // Removed space for UID format
             ss << std::hex << std::uppercase << std::setw(2) << std::setfill('0') << static_cast<int>(mfrc.uid.uidByte[i]);
         }
 
@@ -53,17 +53,33 @@ int main() {
 
         try {
             // Check if UID exists in the database
-            std::unique_ptr<sql::PreparedStatement> pstmt(conn->prepareStatement("SELECT UID, username FROM users  WHERE UID = ?"));
+            std::unique_ptr<sql::PreparedStatement> pstmt(conn->prepareStatement("SELECT UID, tap_count, username FROM users WHERE UID = ?"));
             pstmt->setString(1, uidStr);
             std::unique_ptr<sql::ResultSet> res(pstmt->executeQuery());
 
             if (res->next()) {
                 // UID exists, print "Hello [username]"
                 std::string username = res->getString("username");
-                std::cout << "Hello " << username << std::endl;
+                int tapCount = res->getInt("tap_count");
+
+                // Increment tap count
+                tapCount++
+
+                // Update tap count in the database
+                std::unique_ptr<sql::PreparedStatement> updatePstmt(conn->prepareStatement("UPDATE users SET tap_count = ? WHERE UID = ?"));
+                updatePstmt->setInt(1, tapCount);
+                updatePstmt->setString(2, uidStr);
+                updatePstmt->executeUpdate();
+
+                // Determine the message based on the updated tap count
+                if (tapCount % 2 == 0) {
+                    std::cout << "Goodbye " << username << std::endl;
+                } else {
+                    std::cout << "Hello " << username << std::endl;
+                }
             } else {
-                // UID doesn't exist, insert into database
-                pstmt.reset(conn->prepareStatement("INSERT INTO users (UID) VALUES (?)"));
+                // UID doesn't exist, insert into database with tap_count = 1 (first tap)
+                pstmt.reset(conn->prepareStatement("INSERT INTO users (UID, tap_count) VALUES (?, 1)"));
                 pstmt->setString(1, uidStr);
                 pstmt->executeUpdate();
                 std::cout << "UID inserted into database." << std::endl;
