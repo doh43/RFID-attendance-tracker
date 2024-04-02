@@ -1,5 +1,5 @@
 /**
- * @file main.cpp
+ * @file read.cpp
  * @brief RFID card reader and database interaction.
  *
  * This program continuously reads RFID tags using the MFRC522 reader and interacts with a MySQL database.
