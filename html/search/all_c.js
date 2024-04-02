@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['updatecolor',['updateColor',['../classScanButton.html#a425b36458139bda8abcb1a0a41fd2dc8',1,'ScanButton']]],
-  ['user',['User',['../classUser.html',1,'']]],
-  ['user_5fwindow',['user_window',['../classScanButton.html#a5a84fdd77fd4aff624e54914019c711e',1,'ScanButton']]],
-  ['userwindow',['UserWindow',['../classUserWindow.html',1,'UserWindow'],['../classUserWindow.html#a87837d38f7a4cdd10bf4edff99ac4254',1,'UserWindow::UserWindow()']]]
+  ['table',['table',['../classAdminWindow.html#aa7e56cebeaeca9a3d9cf05df2f1c0f3f',1,'AdminWindow']]],
+  ['text_5fbox',['text_box',['../classFileWriteBox.html#a0dd330297bb74bcfdda915aeb7561fb6',1,'FileWriteBox']]],
+  ['timelabel',['timeLabel',['../classUserWindow.html#a8e334a68ebdb3dd0cdd449dbcf2e5ece',1,'UserWindow']]]
 ];
