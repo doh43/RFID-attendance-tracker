@@ -13,15 +13,6 @@ CREATE TABLE admins (
     admin_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     UID VARCHAR(255) NOT NULL UNIQUE,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
-);
-
-CREATE TABLE scans (
-    scan_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,  -- to record which user made the scan
-    tag_id VARCHAR(255), -- RFID tag identifier
-    scan_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 INSERT INTO users(UID, username, email) VALUES("64A63141", "Ethan", "ewakefi@uwo.ca");
