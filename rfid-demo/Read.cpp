@@ -52,18 +52,18 @@ int main() {
         std::cout << "UID: " << uidStr << std::endl;
 
         try {
-            // Check if UID exists in the database
-            std::unique_ptr<sql::PreparedStatement> pstmt(conn->prepareStatement("SELECT UID, tap_count, username FROM users WHERE UID = ?"));
+            // Check if UID exists in the database and get the current tap count
+            std::unique_ptr<sql::PreparedStatement> pstmt(conn->prepareStatement("SELECT username, tap_count FROM users WHERE UID = ?"));
             pstmt->setString(1, uidStr);
             std::unique_ptr<sql::ResultSet> res(pstmt->executeQuery());
 
             if (res->next()) {
-                // UID exists, print "Hello [username]"
+                // UID exists
                 std::string username = res->getString("username");
                 int tapCount = res->getInt("tap_count");
 
                 // Increment tap count
-                tapCount++
+                tapCount++;
 
                 // Update tap count in the database
                 std::unique_ptr<sql::PreparedStatement> updatePstmt(conn->prepareStatement("UPDATE users SET tap_count = ? WHERE UID = ?"));
@@ -92,3 +92,4 @@ int main() {
     }
     return 0;
 }
+
