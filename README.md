@@ -85,3 +85,5 @@ If you see this:
 Error response from daemon: Conflict. The container name "/containername" is already in use by container "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX". You have to remove (or rename) that container to be able to reuse that name. \
 Run
 `docker rm XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
+
+If you see `QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root' No protocol specified qt.qpa.screen: QXcbConnection: Could not connect to display :0 Could not connect to any X display` try running `xhost +`.
