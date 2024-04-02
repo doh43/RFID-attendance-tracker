@@ -35,19 +35,18 @@ void AdminWindow::setupTable() {
     qDebug() << "Database error occured: " << db.lastError().text();
   }
   QSqlQuery query;
-  query.exec("SELECT users.user_id, users.username, users.email, scans.scan_time FROM scans JOIN users ON users.user_id = scans.user_id");
+  query.exec("SELECT UID, username, email, tap_count, last_scan_time FROM users");
   int row = 0;
   while (query.next()) {
-    int userid = query.value(0).toInt();
+    QString userid = query.value(0).toString();
     QString username = query.value(1).toString();
     QString email = query.value(2).toString();
-    QString scantime = query.value(3).toString();
-    QString querystring = QString("SELECT COUNT(*) FROM scans WHERE user_id=%1 GROUP BY user_id").arg(query.value(0).toString());
-    QSqlQuery query2;
-    query2.exec(querystring);
-    QString loginstate = query2.value(0).toInt() % 2 ? QString("Logout"):QString("Login");
+    int tapcount = query.value(3).toInt();
+    QString scantime = query.value(4).toString();
 
-    QTableWidgetItem *item1 = new QTableWidgetItem(QString::number(userid));
+    QString loginstate = tapcount % 2 ? "Logged in":"Logged out";
+
+    QTableWidgetItem *item1 = new QTableWidgetItem(userid);
     table->setItem(row, 0, item1);
     QTableWidgetItem *item2 = new QTableWidgetItem(username);
     table->setItem(row, 1, item2);
@@ -67,9 +66,6 @@ void AdminWindow::setupTable() {
   table->setEditTriggers(QAbstractItemView::NoEditTriggers);
   // Show the table widget
   this->setCentralWidget(table);
-}
-
-void AdminWindow::generateReport() {
 }
 
 void AdminWindow::closeWindow() {

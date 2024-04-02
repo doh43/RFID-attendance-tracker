@@ -58,9 +58,10 @@ class AdminWindow : public QMainWindow {
     protected:
 
     private:
-        QGridLayout *gridLayout;
+        /**
+         * @brief contains the table for the admin window
+        */
         QTableWidget *table;
-        void generateReport();
 };
 
 #endif
