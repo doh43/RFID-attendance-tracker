@@ -6,13 +6,15 @@ CREATE TABLE users (
     UID VARCHAR(255) NOT NULL UNIQUE,
     username VARCHAR(255) NOT NULL, 
     email VARCHAR(255),
-    tap_count INT DEFAULT 0
+    tap_count INT DEFAULT 0,
+    last_scan_time TIMESTAMP NULL DEFAULT NULL
 );
 
 CREATE TABLE admins (
     admin_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
-    UID VARCHAR(255) NOT NULL UNIQUE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    UID VARCHAR(255) NOT NULL UNIQUE
 );
 
 INSERT INTO users(UID, username, email) VALUES("64A63141", "Ethan", "ewakefi@uwo.ca");
