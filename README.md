@@ -61,7 +61,11 @@ Create X11 server by following https://gist.github.com/sorny/969fe55d85c9b0035b0
 
 `docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --network qt-mysql group10/app`
 
-## Step 4: Closing Docker Containers and Images
+## Step 4: Running the RFID Scanner
+
+Run `g++ MFRC522.cpp read.cpp -std=c++11 -lbcm2835 -lmysqlcppconn` to build `read.cpp` inside the `backend` folder. Type `sudo ./a.out` to run the RFID scanner.
+
+## Step 5: Closing Docker Containers and Images
 
 After you are done using the program, go into Docker Desktop and do the following:
 
@@ -71,17 +75,13 @@ After you are done using the program, go into Docker Desktop and do the followin
 
 To remove unused, dangling images, run `docker image prune` from a bash terminal
 
+## Opening a Shell Session
+
+Run `docker exec -it [container id] sh` to open an interactive shell session inside the specified running container. This is particularly useful for debugging, modifying configuration files, inspecting the container's environment, or any other task that requires direct command-line access to the container's internal environment.
+
 ## Errors
 
 If you see this:
 Error response from daemon: Conflict. The container name "/containername" is already in use by container "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX". You have to remove (or rename) that container to be able to reuse that name. \
 Run
 `docker rm XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`
-
-## Populating Database for Testing
-
-Please execute the `create_database.sql` script located in the `./sql` directory within your MySQL database to populate it with sample data.
-
-## Running the Scanner
-
-To build read.cpp run `g++ MFRC522.cpp Read.cpp -std=c++11 -lbcm2835 -lmysqlcppconn` and type `sudo ./a.out` to run the RFID scanner.
