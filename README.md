@@ -5,7 +5,7 @@
 3. Make sure that Device tree is enabled in raspi config (advanced section) 
 
 ## Step 2: BCM2835 Library Installation
-Install the latest version from BCM2835 from : http://www.airspayce.com/mikem/bcm2835/ 
+Install the latest version of BCM2835 from : http://www.airspayce.com/mikem/bcm2835/ 
 1. wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.56.tar.gz 
 2. tar -zxf bcm2835-1.56.tar.gz 
 3. cd bcm2835-1.56 
